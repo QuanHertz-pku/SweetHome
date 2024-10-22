@@ -17,7 +17,7 @@
 ### 3,技术日志
 #### 一，实现前后端通信
 
-'''
+```
 //后端代码实例
 package com.hertzquan.backend.controller;
 
@@ -35,8 +35,8 @@ public class TryConnectController {
     }
 }
 
-'''
-'''
+```
+```
 //解决跨域问题
 package com.hertzquan.backend.config;
 
@@ -81,8 +81,8 @@ public class CorsConfig implements Filter {
     public void destroy() {
     }
 }
-'''
-'''
+```
+```
 //前端代码 App.vue
 <template>
   <div>
@@ -119,6 +119,6 @@ export default {
 
 </style>
 
-'''
+```
 
 

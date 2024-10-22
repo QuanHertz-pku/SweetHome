@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>username:{{ username }}</div>
+    <div> username: {{ username }}</div>
   </div>
   <router-view/>
 </template>

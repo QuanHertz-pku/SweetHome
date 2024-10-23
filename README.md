@@ -9,13 +9,22 @@
     前端：VS code ＋Vue3框架
     2024.10.22 添加依赖 vue-router,vuex,jquery,bootstrap
 
+    项目规划；
+        1.0版本内容：
+            1,Views层，实现Start,Home,User
+            2,Components层，实现NavBar，IntroScroll，Directory，WorkSpace，Column，InfoSpace
+            3,Service层，实现Try
+            4,Http层，实现Sender
+            5,Controller层，实现Test
+            6,Method层，实现Fnid
+            7,Data层，实现UserTable
 ### 2,改动日志
     backend src resources application.properties 改动
         sever.port=8081
 
 
 ### 3,技术日志
-#### 一，实现前后端通信
+#### 一，实现前后端通信 (使用Jquery.ajax技术)
 
 ```
 //后端代码实例

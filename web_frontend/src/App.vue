@@ -1,29 +1,31 @@
 <template>
   <div>
-    <div> username: {{ username }}</div>
+    <div> TryGetusername: {{ TryGetusername }}</div>
+    <div> TryPostusername: {{ TryPostusername }}</div>
   </div>
   <router-view/>
 </template>
 
 <script>
 
-import $ from 'jquery';
 import { ref } from 'vue';
+import tryService from './services/TryService'; '@/services/TryService/index.js'
 
 export default {
   name:"App",
   setup() {
-    let username = ref("");
+    let TryGetusername = ref("");
+    let TryPostusername = ref("");
 
-    $.ajax({
-      url : "http://127.0.0.1:8081/try/get/",
-      type : "get",
-      success: resp => {
-        //console.log(resp);
-        username.value=resp;
-      }
+    tryService.tryGet().then((res) =>{
+      console.log(res);
+      TryGetusername.value = res;
     });
-    return {username}
+    tryService.tryPost({req:"Hertz"}).then((res) =>{
+      console.log(res);
+      TryPostusername.value = res.ans;
+    });
+    return {TryGetusername,TryPostusername}
   },
 }
 </script>

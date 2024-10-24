@@ -36,6 +36,7 @@ export default {
   flex-direction: row;
   height: 30px;
   width: 100%;
+  background-color: aqua;
 }
 
 /* Logo 容器 */

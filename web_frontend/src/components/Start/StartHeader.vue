@@ -1,15 +1,12 @@
 <template>
-    <header>
-      <div class="jumbotron jumbotron-lg jumbotron-fluid mb-0 pb-3 bg-success position-relative">
-        <div class="container-fluid text-white h-100">
-          <div class="d-flex flex-column align-items-center justify-content-center text-center pl-lg-5">
-            <h1 class="display-3">Build something <strong>nice</strong> & easy</h1>
-            <h5 class="font-weight-light mb-4">With this FREE Bootstrap 4.1.3<strong> UI Kit</strong> & <strong><i class="fab fa-sass fa-2x text-info"></i></strong></h5>
-            <a href="#" class="btn btn-lg btn-outline-white btn-round">Learn more</a>
-          </div>
+    <div class="HeaderContainer">
+      <div class="HeaderCenterContainer">
+        <div class="HeaderCenter">
+          <div class="HeaderCenterText">这里暂时先不做了</div>
         </div>
+        <button type="button" class="Start_Button" @click="onClick">开始</button>
       </div>
-    </header>
+    </div>
 </template> 
 
 <script>
@@ -18,9 +15,45 @@ import "bootstrap/dist/js/bootstrap"
 
 export default{
     name:"StartHeader",
+    data(){
+        return{
+            
+        }
+    },
+    methods:{
+        onClick(){
+            this.$router.push({path: '/home'});
+        }
+    }
 };
 </script>
 
 <style scoped>
+.HeaderContainer{
+    display: flex;
+    flex-direction: column;
+    height: 2000px;
+    width: 100%;
+    background-color: yellow;
+}
+.HeaderCenter{
+    display: flex;
+    width: 100%;
+    height: 1000px;
+    background-color: blue;
+    align-items: center; /* 垂直居中 */
+    justify-content: center;
+}
+.HeaderCenterText{
+  height: 20px;
+  width: 300px;
+  color: #ffffff;
+}
 
+.Start_Button{
+    display: flex;
+    width: 200px;
+    height: 50px;
+    justify-content: center;
+}
 </style>

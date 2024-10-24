@@ -1,19 +1,19 @@
 <template>
-  <div>
+  <!--div>
     <div> TryGetusername: {{ TryGetusername }}</div>
     <div> TryPostusername: {{ TryPostusername }}</div>
-  </div>
+  </div-->
   <router-view/>
 </template>
 
 <script>
 
-import { ref } from 'vue';
-import tryService from './services/TryService'; '@/services/TryService/index.js'
+//import { ref } from 'vue';
+//import tryService from './services/TryService'; '@/services/TryService/index.js'
 
 export default {
   name:"App",
-  setup() {
+  /*setup() {
     let TryGetusername = ref("");
     let TryPostusername = ref("");
 
@@ -27,6 +27,7 @@ export default {
     });
     return {TryGetusername,TryPostusername}
   },
+  */
 }
 </script>
 

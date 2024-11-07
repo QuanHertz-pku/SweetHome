@@ -1,0 +1,17 @@
+{
+    "files":[
+        {
+            "filename":"test",
+            "id":"test"
+        },{
+            "filename":"test2",
+            "id":"test2"
+        },{
+            "filename":"test3",
+            "id":"test3"
+        },{
+            "filename":"test4",
+            "id":"test4"
+        }
+    ]
+}

@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# 克隆代码仓库
-cd SweetHome
-git pull
 # 执行部署操作
 docker-compose stop frontend backend
 docker-compose rm -f frontend backend

@@ -49,5 +49,6 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
             cd SweetHome
+            git pull
             chmod +x ./deploy.sh
             ./deploy.sh

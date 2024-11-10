@@ -11,10 +11,10 @@ jobs:
 
     steps:   #一个step里面包含一个或多个action
     - name: Checkout code
-      uses: actions/checkout@v3  # 获取代码，加载到runner 中
+      uses: actions/checkout@v4  # 获取代码，加载到runner 中
 
     - name: Set up Node.js
-      uses: actions/setup-node@v3 #在runner中安装node.js
+      uses: actions/setup-node@v4 #在runner中安装node.js
       with:
         node-version: '20.18.0'
 

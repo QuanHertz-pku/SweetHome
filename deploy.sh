@@ -9,4 +9,5 @@ docker-compose rm -f frontend backend
 docker-compose up -d frontend backend
 
 #配置Nginx
-docker cp default.conf frontend:/etc/nginx/conf.d/default.conf
+docker cp default.conf frontend_container:/etc/nginx/conf.d/default.conf
+docker exec frontend_container nginx -s reload

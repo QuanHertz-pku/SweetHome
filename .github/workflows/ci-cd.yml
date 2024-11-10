@@ -36,13 +36,18 @@ jobs:
 
   deploy: # 部署
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
+    environment: production
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4 #缓存代码
 
     - name: Deploy to server
-      run: | #这里可以写Bash脚本，使用SSH命令，SCP命令部署你的代码到服务器然后运行！帅！
-        echo "Deploying to production server..."
-        # 这里可以添加你的部署脚本，例如使用 SSH 或 FTP 部署代码
+      uses: appleboy/ssh-action@master
+      with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          script: |
+            cd SweetHome
+            chmod +x ./deploy.sh
+            ./deploy.sh

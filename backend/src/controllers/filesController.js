@@ -88,4 +88,34 @@ const updateFile = async (req, res) => {
     }
 };
 
-module.exports = { getFileList, addFile, getFileContent, updateFile };
+const deleteFile = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        // 删除文件
+        await File.deleteOne({ _id: id });
+
+        console.log("文件删除成功:", id);
+        res.status(200).json({ message: "文件已删除" });
+    } catch (error) {
+        console.error("删除文件时出错:", error);
+        res.status(500).json({ message: "服务器内部错误" });
+    }
+};
+
+const renameFile = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { newName } = req.body;
+
+        // 更新文件名称
+        await File.updateOne({ id: id }, { name: newName });
+
+        console.log("文件重命名成功:", newName);
+        res.status(200).json({ message: "文件已重命名" });
+    } catch (error) {
+        console.error("文件重命名时出错:", error);
+    }
+};
+
+module.exports = { getFileList, addFile, getFileContent, updateFile,deleteFile,renameFile };

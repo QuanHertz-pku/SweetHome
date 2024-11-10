@@ -1,8 +1,10 @@
     const dotenv = require('dotenv'); // 加载 .env 文件中的变量
     if (process.env.NODE_ENV === 'production') {
         dotenv.config({ path: '.env.production' });
+        console.log('生产环境 数据库URL:' + process.env.MONGO_URI);
     } else if (process.env.NODE_ENV === 'development') {
         dotenv.config({ path: '.env.development' });
+        console.log('开发环境 数据库URL:' + process.env.MONGO_URI);
     } else {
         dotenv.config(); // 默认加载 .env 文件
     }

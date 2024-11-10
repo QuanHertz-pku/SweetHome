@@ -19,7 +19,7 @@ services:
       dockerfile: Dockerfile
     container_name: backend_container
     env_file:
-      - .env.production  # 指定 .env.production 文件
+      - ./backend/.env.production  # 指定 .env.production 文件
     ports:
       - "8000:8000"
     networks:

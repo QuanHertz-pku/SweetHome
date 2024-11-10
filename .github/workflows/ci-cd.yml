@@ -40,7 +40,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3 #缓存代码
+      uses: actions/checkout@v4 #缓存代码
 
     - name: Deploy to server
       run: | #这里可以写Bash脚本，使用SSH命令，SCP命令部署你的代码到服务器然后运行！帅！

@@ -1,10 +1,23 @@
-    require('dotenv').config(); // 加载 .env 文件中的变量
+    const dotenv = require('dotenv'); // 加载 .env 文件中的变量
+    if (process.env.NODE_ENV === 'production') {
+        dotenv.config({ path: '.env.production' });
+    } else if (process.env.NODE_ENV === 'development') {
+        dotenv.config({ path: '.env.development' });
+    } else {
+        dotenv.config(); // 默认加载 .env 文件
+    }
+
+
+
     const express = require('express');
     const morgan = require('morgan');
     const mongoose = require('mongoose');
     const bcrypt = require('bcrypt');
     const cors = require('cors');
     const authToken = require('./src/middleware/authToken');
+
+
+    
 
     const app = express();
 

@@ -1,0 +1,48 @@
+name: CI/CD Pipeline
+
+on:  # 定义触发条件
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:   #一个step里面包含一个或多个action
+    - name: Checkout code
+      uses: actions/checkout@v2  # 获取代码，加载到runner 中
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2 #在runner中安装node.js
+      with:
+        node-version: '20.18.0'
+
+    - name: Install frontend dependencies
+      working-directory: ./frontend
+      run: npm install  #run里面直接写bash 命令
+
+    - name: Run frontend tests
+      working-directory: ./frontend
+      run: npm test
+
+    - name: Install backend dependencies
+      working-directory: ./backend
+      run: npm install
+
+    - name: Run backend tests
+      working-directory: ./backend
+      run: npm test
+
+  deploy: # 部署
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2 #缓存代码
+
+    - name: Deploy to server
+      run: | #这里可以写Bash脚本，使用SSH命令，SCP命令部署你的代码到服务器然后运行！帅！
+        echo "Deploying to production server..."
+        # 这里可以添加你的部署脚本，例如使用 SSH 或 FTP 部署代码

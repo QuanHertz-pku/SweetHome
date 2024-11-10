@@ -1,10 +1,10 @@
     const dotenv = require('dotenv'); // 加载 .env 文件中的变量
     if (process.env.NODE_ENV === 'production') {
         dotenv.config({ path: '.env.production' });
-        console.log('生产环境 数据库URL:' + process.env.MONGO_URI);
+        console.log('生产环境 数据库URL:' + process.env.MONGO_URL);
     } else if (process.env.NODE_ENV === 'development') {
         dotenv.config({ path: '.env.development' });
-        console.log('开发环境 数据库URL:' + process.env.MONGO_URI);
+        console.log('开发环境 数据库URL:' + process.env.MONGO_URL);
     } else {
         dotenv.config(); // 默认加载 .env 文件
     }
@@ -25,9 +25,9 @@
 
     const PORT = process.env.PORT || 8000; // 从环境变量中读取端口，如果没有设置则使用默认值 3000
 
-    const mongoURI = process.env.MONGO_URI;
+    const mongoURL = process.env.MONGO_URL;
 
-    mongoose.connect(mongoURI, {
+    mongoose.connect(mongoURL, {
     }).then(() => {
         console.log('Connected to MongoDB');
     }).catch((error) => {

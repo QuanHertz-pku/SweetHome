@@ -3,6 +3,8 @@ import EditorJS from '@editorjs/editorjs';
 import Header from '@editorjs/header';
 import List from '@editorjs/list';
 import Checklist from '@editorjs/checklist';
+import InlineCode from '@editorjs/inline-code';
+import CodeMirrorTool from './CodeMirrorTool';
 
 import ReadFileServer from '../../../servers/FileServer/ReadFileServer';
 import SaveFileServer from '../../../servers/FileServer/SaveFileServer';
@@ -28,9 +30,14 @@ function EditorComponent({ files, selectedFile }) {
                     checklist: {
                         class: Checklist,
                         inlineToolbar: true
-                    }
+                    },
+                    code:{
+                        class: CodeMirrorTool,
+                    },
+                    inlineCode: InlineCode,
                 },
                 onChange: handleAutoSave,
+                autofocus: true
             });
         }
 

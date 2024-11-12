@@ -13,6 +13,6 @@ router.put('/update/:id', filesController.updateFile);
 
 router.get('/delete/:id', filesController.deleteFile);
 
-router.post('/download/:id', filesController.renameFile);
+router.post('/rename/:id', filesController.renameFile);
 
 module.exports = router;

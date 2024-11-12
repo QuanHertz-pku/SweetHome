@@ -109,7 +109,11 @@ const renameFile = async (req, res) => {
         const { newName } = req.body;
 
         // 更新文件名称
-        await File.updateOne({ id: id }, { name: newName });
+        await File.findByIdAndUpdate(
+            id,
+            { filename: newName },
+            { new: true, upsert: false } // 确保返回更新后的文档且不新建
+        );
 
         console.log("文件重命名成功:", newName);
         res.status(200).json({ message: "文件已重命名" });

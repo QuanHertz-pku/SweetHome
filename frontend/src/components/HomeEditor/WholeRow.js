@@ -11,6 +11,7 @@ function WholeRow(props) {
     const [selectedFile,setselectedFile] = useState(0);
     useEffect(()=>{
         console.log("wholerow",props)
+        console.log("selectedFile",selectedFile)
     },[selectedFile])
     return (
         <FillContainer>

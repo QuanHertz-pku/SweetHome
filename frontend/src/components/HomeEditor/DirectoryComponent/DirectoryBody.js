@@ -3,6 +3,9 @@ import {
     ListGroup,
     ListGroupItem,
 } from 'reactstrap'
+
+import DirectoryBodyListItem from "./DirectoryBodyListItem";
+
 function DirectoryBody(props) {
     return (
         <div style={{ width: '100%', height: '83vh' }}>
@@ -11,20 +14,14 @@ function DirectoryBody(props) {
                     {
                         props.files.map((item, index) => {
                             return (
-                                <ListGroupItem 
-                                    key={index} 
-                                    className="d-flex justify-content-between align-items-center" 
-                                    tag="button"
-                                    action
-                                    onClick={
-                                        ()=>{
-                                            //console.log(index)
-                                            props.setselectedFile(index)
-                                        }
-                                    }
+                                <DirectoryBodyListItem 
+                                    key={index}
+                                    {...item}
+                                    index={index}
+                                    setselectedFile={props.setselectedFile}
                                 >
                                     {item.filename}
-                                </ListGroupItem>
+                                </DirectoryBodyListItem>
                             )
                         })
                     }

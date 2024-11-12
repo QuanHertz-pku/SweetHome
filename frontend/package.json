@@ -16,6 +16,7 @@
     "@editorjs/checklist": "^1.6.0",
     "@editorjs/editorjs": "^2.30.6",
     "@editorjs/header": "^2.8.8",
+    "@editorjs/image": "^2.10.0",
     "@editorjs/inline-code": "^1.5.1",
     "@editorjs/list": "^1.10.0",
     "@uiw/codemirror-theme-vscode": "^4.23.6",

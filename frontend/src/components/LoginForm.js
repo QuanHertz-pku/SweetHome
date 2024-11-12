@@ -28,7 +28,8 @@ function LoginForm(props){
         AuthLoginSender(formData).then(res=>{
             console.log(res);
             if(res.message === '登录成功'){
-                localStorage.setItem('token', res.token);
+                localStorage.setItem('token', res.token)
+                window.location.reload();
             }
         }).catch((res)=>{
             console.log(res.message)

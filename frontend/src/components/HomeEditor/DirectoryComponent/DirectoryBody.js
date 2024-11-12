@@ -20,7 +20,6 @@ function DirectoryBody(props) {
                                     index={index}
                                     setselectedFile={props.setselectedFile}
                                 >
-                                    {item.filename}
                                 </DirectoryBodyListItem>
                             )
                         })

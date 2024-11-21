@@ -5,6 +5,7 @@ import List from '@editorjs/list';
 import Checklist from '@editorjs/checklist';
 import InlineCode from '@editorjs/inline-code';
 import CodeMirrorTool from './CodeMirrorTool';
+import ImageTool from '@editorjs/image';
 
 import ReadFileServer from '../../../servers/FileServer/ReadFileServer';
 import SaveFileServer from '../../../servers/FileServer/SaveFileServer';
@@ -35,6 +36,14 @@ function EditorComponent({ files, selectedFile }) {
                         class: CodeMirrorTool,
                     },
                     inlineCode: InlineCode,
+                    image: {
+                        class: ImageTool,
+                        config: {
+                            endpoints: {
+                            byFile: 'http://localhost:8000/files/uploadFile', // Your backend file uploader endpoint
+                            }
+                        }
+                    }
                 },
                 onChange: handleAutoSave,
                 autofocus: true

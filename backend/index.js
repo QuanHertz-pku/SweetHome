@@ -17,8 +17,6 @@
     const bcrypt = require('bcrypt');
     const cors = require('cors');
     const authToken = require('./src/middleware/authToken');
-
-
     
 
     const app = express();

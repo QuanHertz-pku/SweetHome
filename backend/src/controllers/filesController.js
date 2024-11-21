@@ -122,4 +122,21 @@ const renameFile = async (req, res) => {
     }
 };
 
-module.exports = { getFileList, addFile, getFileContent, updateFile,deleteFile,renameFile };
+const uploadFile = async (req, res) => {
+    try {
+        const { filename, filecontent } = req.body;
+
+        // 创建新的文件记录
+        const newFile = await File.create({
+            filename,
+            filecontent
+        });
+
+        console.log("文件上传成功:", newFile);
+        res.status(201).json(newFile);
+    } catch (error) {
+       console.error("文件上传时出错:", error);
+    }
+}
+
+module.exports = { getFileList, addFile, getFileContent, updateFile,deleteFile,renameFile,uploadFile};

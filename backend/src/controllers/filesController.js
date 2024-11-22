@@ -131,7 +131,7 @@ const uploadFile = (req, res) => {
     res.json({
       success: 1,
       file: {
-        url: `http://localhost:8000/uploads/${req.file.filename}`,
+        url: `${process.env.PHOTO_URL}${req.file.filename}`,
       },
     });
   };

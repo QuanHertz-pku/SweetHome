@@ -22,6 +22,8 @@ services:
       - ./backend/.env.production  # 指定 .env.production 文件
     ports:
       - "8000:8000"
+    volumes:
+      - photo-data:/app/uploads
     networks:
       - app-network
     depends_on:
@@ -44,3 +46,4 @@ networks:
 
 volumes:
   mongo-data:
+  photo-data:

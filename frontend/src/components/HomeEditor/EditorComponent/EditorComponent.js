@@ -40,7 +40,7 @@ function EditorComponent({ files, selectedFile }) {
                         class: ImageTool,
                         config: {
                             endpoints: {
-                            byFile: 'http://localhost:8000/files/uploadFile', // Your backend file uploader endpoint
+                                byFile: 'http://localhost:8000/api/files/uploadFile', // Your backend file uploader endpoint
                             }
                         }
                     }

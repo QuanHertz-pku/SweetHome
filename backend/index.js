@@ -17,6 +17,7 @@
     const bcrypt = require('bcrypt');
     const cors = require('cors');
     const authToken = require('./src/middleware/authToken');
+    const path = require('path');
     
 
     const app = express();
@@ -40,6 +41,7 @@
     app.options('*', cors()); // 处理所有路径的 OPTIONS 请求
     app.use(express.json());
     app.use(morgan('dev'));
+    app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
     app.get('/files', authToken, (req, res) => {
         res.json({ message: '你已成功访问保护路由', user: req.user });
     });

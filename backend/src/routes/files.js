@@ -31,6 +31,6 @@ router.get('/delete/:id', filesController.deleteFile);
 
 router.post('/rename/:id', filesController.renameFile);
 
-router.post('/uploadFile', upload.single('file') , filesController.uploadFile);
+router.post('/uploadFile', upload.single('image') , filesController.uploadFile);
 
 module.exports = router;

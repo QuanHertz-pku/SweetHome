@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client'; // 从 react-dom/client 导入 createRoot
 import { BrowserRouter } from 'react-router-dom';
 
+import './asset/css/output.css';
+
 import "bootstrap/dist/css/bootstrap.min.css"
 import 'overlayscrollbars/overlayscrollbars.css';
 

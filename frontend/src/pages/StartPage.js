@@ -37,6 +37,12 @@ function StartPage(){
             <div className="absolute top-80 left-20 w-1/3 overflow h-auto z-2 opacity-40">
                 <img src="http://sweet-home.love/uploads/logo_AigoM.png"/>
             </div>
+            <div className="absolute bottom-0 w-full">
+                <div className="flex items-center justify-center font-light text-xs">
+                    <a className=" text-gray-50"
+                    href="https://beian.miit.gov.cn/?spm=5176.27804673.J_9220772140.60.2aa61f58vo2SkI#/Integrated/index">湘ICP备2024091953号-1</a>
+                </div>
+            </div>
         </div>
     )
 }

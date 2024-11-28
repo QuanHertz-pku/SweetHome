@@ -1,1 +1,0 @@
-export {default as WholeRow} from './HomeEditor/WholeRow';

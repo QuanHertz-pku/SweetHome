@@ -1,13 +1,12 @@
-import react,{useEffect} from "react";
+import {useEffect,useRef} from "react";
 import { useNavigate } from 'react-router-dom';
 
-import {
-    LoginForm
-} from "@/components";
+import AuthLoginSender from '@/servers/AuthServer/AuthLoginSender'
 
-import LoginFormProps from '@/props/componentprops/LoginFormProps'
+
+import {MetaBackground,MetaLoginform,MetaNavbar,MetaReminder} from "@/MetaComponent";
 function LoginPage({}){
-
+    const scaleRef = useRef(null);
     const navigate = useNavigate ();
 
     useEffect(() => {
@@ -17,10 +16,30 @@ function LoginPage({}){
         }
     }, []);
 
+    const handleSubmit = (Username, Password) => {
+        const formData = {
+            name: Username,
+            pwd: Password
+        };
+        AuthLoginSender(formData).then(res=>{
+            console.log(res);
+            if(res.message === '登录成功'){
+                localStorage.setItem('token', res.token)
+                window.location.reload();
+            }
+        }).catch((res)=>{
+            console.log(res.message)
+            scaleRef.current.classList.remove('scale-0');
+            scaleRef.current.classList.add('scale-100','duration-200');
+        });
+    }
+
     return(
-        <div>
-            <LoginForm {...LoginFormProps}></LoginForm>
-        </div>
+        <MetaBackground>
+            <MetaReminder scaleRef={scaleRef}/>
+            <MetaNavbar/>
+            <MetaLoginform handleSubmit={handleSubmit}></MetaLoginform>
+        </MetaBackground>
     )
 }
 

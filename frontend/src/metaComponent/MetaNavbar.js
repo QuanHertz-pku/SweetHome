@@ -1,6 +1,6 @@
 const MetaNavbar=()=>{
     return (
-        <div className="absolute top-0 z-20 w-full">
+        <div className="absolute top-0 z-10 w-full">
             <div className="flex items-center">
                 <div className="h-auto w-8 ml-5 mt-2">
                     <img src="http://sweet-home.love/uploads/logo_AigoM.png"/>

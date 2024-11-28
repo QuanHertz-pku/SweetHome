@@ -1,6 +1,6 @@
 import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
 
-function ScrollableContainer({ children }) {
+function MetaScrollable({ children }) {
   return (
     <OverlayScrollbarsComponent
         options={{
@@ -15,4 +15,4 @@ function ScrollableContainer({ children }) {
   );
 }
 
-export default ScrollableContainer;
+export default MetaScrollable;

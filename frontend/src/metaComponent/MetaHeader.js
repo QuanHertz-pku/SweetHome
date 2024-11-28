@@ -1,7 +1,7 @@
 const MetaHeader=()=>{
     return(
         <>
-            <div className="w-full h-screen flex flex-col items-center justify-center">
+            <div className="w-full h-screen flex flex-col items-center justify-center text-white">
                 <div className="font-bold text-6xl z-10">
                     <span className="text-shadow-xl">Sweet · Home</span>
                 </div>

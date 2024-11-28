@@ -7,8 +7,8 @@ import InlineCode from '@editorjs/inline-code';
 import CodeMirrorTool from './CodeMirrorTool';
 import ImageTool from '@editorjs/image';
 
-import ReadFileServer from '../../../servers/FileServer/ReadFileServer';
-import SaveFileServer from '../../../servers/FileServer/SaveFileServer';
+import ReadFileServer from '@/servers/FileServer/ReadFileServer';
+import SaveFileServer from '@/servers/FileServer/SaveFileServer';
 
 function EditorComponent({ files, selectedFile }) {
     const editorInstance = useRef(null);

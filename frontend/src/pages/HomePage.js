@@ -1,13 +1,15 @@
-import { WholeRow } from "../components";
 import { useNavigate } from 'react-router-dom';
 import { useEffect,useState } from "react";
 
 //import EditorProps from "../props/componentprops/EditorProps";
 import GetDirectoryServer from "../servers/FileServer/GetDirectoryServer";
+import { MetaMaincontianer, MetaPrograming, MetaSidebar,MetaEditor   } from "../MetaComponent";
 function HomePage(){
 
     const navigate = useNavigate ();
     const [EditorProps,setEditorProps] = useState({ files: [] });
+    const [selectedList, setSelectedList] = useState(0);
+    const [selectedFile, setSelectedFile] = useState(0);
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -26,12 +28,15 @@ function HomePage(){
             }));
         };
 
-        fetchFiles(); // 调用异步函数
+        fetchFiles(); //调用异步函数
     }, [navigate]);
 
     return (
         <>
-            <WholeRow {...EditorProps} />
+            <MetaSidebar {...EditorProps} setSelectedFile={setSelectedFile} setselectedList={setSelectedList}/>
+            <MetaMaincontianer>
+                {selectedList ===0 ? <MetaEditor {...EditorProps} selectedFile={selectedFile}/> : <MetaPrograming/>}
+            </MetaMaincontianer>
         </>
     );
 }

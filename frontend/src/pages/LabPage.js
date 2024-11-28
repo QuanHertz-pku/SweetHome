@@ -1,10 +1,11 @@
 import React from "react";
-import { NavbarGroupComponent } from "../groupComponent";
+import { MetaBackground,MetaSidebar,MetaMaincontianer } from "../MetaComponent";
 function LabPage() {
   return (
-    <NavbarGroupComponent>
-      
-    </NavbarGroupComponent>
+    <MetaBackground>
+      <MetaSidebar/>
+      <MetaMaincontianer/>
+    </MetaBackground>
   );
 }
 

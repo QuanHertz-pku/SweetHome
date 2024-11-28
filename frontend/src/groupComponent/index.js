@@ -1,1 +1,0 @@
-export {default as NavbarGroupComponent} from './NavbarGroupComponent'

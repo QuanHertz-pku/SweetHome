@@ -18,7 +18,7 @@ const MetaFileitem = (porps) => {
                 <div className="ml-1 font-blod">{porps.filename}</div>
             </div>
 
-            <div className="relative rounded-sm hover:bg-slate-200"
+            <div className="relative rounded-sm hover:bg-slate-200 mr-2"
                 onClick={()=>{
                     flyoutRef.current.classList.toggle("invisible");
                 }}
@@ -26,10 +26,10 @@ const MetaFileitem = (porps) => {
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="h-4">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z" />
                 </svg>
-                <div className="invisible absolute top-4 right-0 z-30"
+                <div className="invisible absolute top-4 left-0 z-30 -translate-x-32"
                     ref={flyoutRef}    
                 >
-                    <div className="absolute w-32 h-auto bg-slate-100 rounded-md border-2 border-slate-300">
+                    <div className="w-32 h-auto bg-slate-100 rounded-md border-2 border-slate-300">
                         <div className="h-4 my-1 mx-2">
                             Delete
                         </div>

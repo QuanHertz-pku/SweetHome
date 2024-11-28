@@ -16,7 +16,7 @@ const MetaFilelist = (props) => {
                 <ul className="ml-1 pl-0 font-mono text-sm font-thin text-slate-700">
                     {
                         props.files.map((file, index) => (
-                            <MetaFileitem key={index} index={index} filename={file.filename} id={file.id} setSelectedFile={props.setSelectedFile} />
+                            <MetaFileitem key={index} index={index} filename={file.filename} id={file.id} setSelectedFile={props.setSelectedFile} setSelectedList={props.setSelectedList}/>
                         ))
                     }
                 </ul>

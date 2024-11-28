@@ -1,13 +1,15 @@
 import {useRef} from "react";
-const MetaFileitem = (porps) => {
+import DeleteFileServer from "../servers/FileServer/DeleteFilrServer";
+const MetaFileitem = (props) => {
     const flyoutRef=useRef(null);
 
     return (
         <li className="flex items-center justify-between hover:bg-white">
             <div className="flex items-center flex-grow"
                 onClick={()=>{
-                    console.log(porps.index); 
-                    porps.setSelectedFile(porps.index);
+                    console.log(props.index); 
+                    props.setSelectedFile(props.index);
+                    props.setSelectedList(0);
                 }}
             >
                 <div>
@@ -15,7 +17,7 @@ const MetaFileitem = (porps) => {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
                     </svg>
                 </div>
-                <div className="ml-1 font-blod">{porps.filename}</div>
+                <div className="ml-1 font-blod">{props.filename}</div>
             </div>
 
             <div className="relative rounded-sm hover:bg-slate-200 mr-2"
@@ -30,7 +32,12 @@ const MetaFileitem = (porps) => {
                     ref={flyoutRef}    
                 >
                     <div className="w-32 h-auto bg-slate-100 rounded-md border-2 border-slate-300">
-                        <div className="h-4 my-1 mx-2">
+                        <div className="h-4 my-1 mx-2 hover:bg-white"
+                            onClick={() => {
+                                DeleteFileServer(props.id);
+                                window.location.reload();
+                            }}
+                        >
                             Delete
                         </div>
                         <div className="h-4 my-1 mx-2">

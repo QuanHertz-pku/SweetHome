@@ -8,7 +8,7 @@ const MetaButtonbar = (props) => {
 
     return (
         <div className="flex justify-evenly">
-            <div className="ml-1 mr-1 flex h-8 w-1/2 items-center justify-center rounded-xl bg-pink-400"
+            <div className="ml-1 mr-1 flex h-8 w-1/2 items-center justify-center rounded-xl bg-pink-400 hover:bg-pink-500"
                 onClick={onAdd}
             >
                 <span className="text-slate-50">
@@ -17,7 +17,7 @@ const MetaButtonbar = (props) => {
                     </svg>
                 </span>
             </div>
-            <div className="mr-1 flex h-8 w-1/2 items-center justify-center rounded-xl bg-indigo-500">
+            <div className="mr-1 flex h-8 w-1/2 items-center justify-center rounded-xl bg-indigo-500 hover:bg-indigo-600">
                 <span className="text-slate-50">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 10.5v6m3-3H9m4.06-7.19-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />

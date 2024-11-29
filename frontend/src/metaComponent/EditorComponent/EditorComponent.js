@@ -20,10 +20,7 @@ function EditorComponent({ files, selectedFile }) {
             editorInstance.current = new EditorJS({
                 holder: 'editorjs',
                 tools: {
-                    header: {
-                        class: Header,
-                        inlineToolbar: ['link']
-                    },
+                    header: Header,
                     list: {
                         class: List,
                         inlineToolbar: true

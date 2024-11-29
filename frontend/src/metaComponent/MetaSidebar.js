@@ -1,4 +1,4 @@
-import {MetaUserbar,MetaSearchbar, MetaButtonbar, MetaFilelist,MetaFlowlist, MetaLablist} from "./"
+import {MetaUserbar,MetaSearchbar, MetaButtonbar, MetaFilelist,MetaFlowlist, MetaLablist} from "."
 
 const MetaSidebar = (props) => {
     return (

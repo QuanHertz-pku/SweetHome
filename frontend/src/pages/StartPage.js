@@ -3,7 +3,7 @@ import {
     MetaNavbar,
     MetaHeader,
     MetaICP
-} from "../MetaComponent";
+} from "../metaComponent";
 
 //pages/StartPage.js
 function StartPage(){

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import AuthLoginSender from '@/servers/AuthServer/AuthLoginSender'
 
 
-import {MetaBackground,MetaLoginform,MetaNavbar,MetaReminder} from "@/MetaComponent";
+import {MetaBackground,MetaLoginform,MetaNavbar,MetaReminder} from "@/metaComponent";
 function LoginPage({}){
     const scaleRef = useRef(null);
     const navigate = useNavigate ();

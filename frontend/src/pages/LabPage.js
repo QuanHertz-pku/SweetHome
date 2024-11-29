@@ -1,5 +1,5 @@
 import React from "react";
-import { MetaBackground,MetaSidebar,MetaMaincontianer } from "../MetaComponent";
+import { MetaBackground,MetaSidebar,MetaMaincontianer } from "../metaComponent";
 function LabPage() {
   return (
     <MetaBackground>

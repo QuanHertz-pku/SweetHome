@@ -3,7 +3,7 @@ import { useEffect,useState } from "react";
 
 //import EditorProps from "../props/componentprops/EditorProps";
 import GetDirectoryServer from "../servers/FileServer/GetDirectoryServer";
-import { MetaMaincontianer, MetaPrograming, MetaSidebar,MetaEditor, MetaBackground   } from "../MetaComponent";
+import { MetaMaincontianer, MetaPrograming, MetaSidebar,MetaEditor, MetaBackground   } from "../metaComponent";
 function HomePage(){
 
     const navigate = useNavigate ();

@@ -13,7 +13,6 @@ function EditorComponent({ files, selectedFile }) {
         if (files && files[selectedFile] && !editorInstance.current) {
             editorInstance.current = EditorOrigin({handleAutoSave:handleAutoSave});
         }
-
         // 清理函数：在组件卸载时销毁 Editor.js 实例
         return () => {
             if (editorInstance.current) {
@@ -49,6 +48,7 @@ function EditorComponent({ files, selectedFile }) {
             } else {
                 console.error("Invalid file content format");
             }
+            console.log("fecthed",content.fileId,response._id)
         } catch (error) {
             console.error("Error fetching file content:", error);
         }

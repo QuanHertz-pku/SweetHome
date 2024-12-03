@@ -1,11 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import EditorJS from '@editorjs/editorjs';
-import Header from '@editorjs/header';
-import List from '@editorjs/list';
-import Checklist from '@editorjs/checklist';
-import InlineCode from '@editorjs/inline-code';
-import CodeMirrorTool from './CodeMirrorTool';
-import ImageTool from '@editorjs/image';
+import EditorOrigin from './EditorOrigin';
 
 import ReadFileServer from '@/servers/FileServer/ReadFileServer';
 import SaveFileServer from '@/servers/FileServer/SaveFileServer';
@@ -17,34 +11,7 @@ function EditorComponent({ files, selectedFile }) {
     useEffect(() => {
         // 初始化 Editor.js 实例，只有当 files 和 selectedFile 有效时才初始化
         if (files && files[selectedFile] && !editorInstance.current) {
-            editorInstance.current = new EditorJS({
-                holder: 'editorjs',
-                tools: {
-                    header: Header,
-                    list: {
-                        class: List,
-                        inlineToolbar: true
-                    },
-                    checklist: {
-                        class: Checklist,
-                        inlineToolbar: true
-                    },
-                    code:{
-                        class: CodeMirrorTool,
-                    },
-                    inlineCode: InlineCode,
-                    image: {
-                        class: ImageTool,
-                        config: {
-                            endpoints: {
-                                byFile: process.env.API_URL+'/files/uploadFile', // Your backend file uploader endpoint
-                            }
-                        }
-                    }
-                },
-                onChange: handleAutoSave,
-                autofocus: true
-            });
+            editorInstance.current = EditorOrigin({handleAutoSave:handleAutoSave});
         }
 
         // 清理函数：在组件卸载时销毁 Editor.js 实例
@@ -78,7 +45,7 @@ function EditorComponent({ files, selectedFile }) {
         try {
             const response = await ReadFileServer(fileId);
             if (response && response.filecontent && Array.isArray(response.filecontent.blocks)) {
-                setContent({ filecontent: response.filecontent });
+                setContent({filecontent: response.filecontent,fileId:response._id });
             } else {
                 console.error("Invalid file content format");
             }
@@ -102,9 +69,10 @@ function EditorComponent({ files, selectedFile }) {
             const outputData = await editorInstance.current.save();
             console.log('Auto-saving data: ', outputData);
             const fileId = files[selectedFile].id;
-            if (fileId) {
+            if (fileId && fileId === content.fileId) {
                 SaveFileServer(fileId, outputData);
             } else {
+                console.log(fileId,content.filecontent,content.fileId)
                 console.warn("Auto-save skipped: file ID is missing.");
             }
         } catch (error) {

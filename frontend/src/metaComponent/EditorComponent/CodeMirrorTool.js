@@ -1,6 +1,6 @@
 import CodeMirror from "@uiw/react-codemirror";
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import { javascript } from "@codemirror/lang-javascript";
 import {vscodeDark} from '@uiw/codemirror-theme-vscode'
 

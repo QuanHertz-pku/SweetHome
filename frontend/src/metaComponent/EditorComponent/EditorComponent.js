@@ -69,10 +69,9 @@ function EditorComponent({ files, selectedFile }) {
             const outputData = await editorInstance.current.save();
             console.log('Auto-saving data: ', outputData);
             const fileId = files[selectedFile].id;
-            if (fileId && fileId === content.fileId) {
+            if (fileId) {
                 SaveFileServer(fileId, outputData);
             } else {
-                console.log(fileId,content.filecontent,content.fileId)
                 console.warn("Auto-save skipped: file ID is missing.");
             }
         } catch (error) {

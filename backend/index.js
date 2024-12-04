@@ -39,7 +39,9 @@
     // 中间件
     app.use(cors());
     app.options('*', cors()); // 处理所有路径的 OPTIONS 请求
-    app.use(express.json());
+    // 增加请求体大小限制到 50MB
+    app.use(express.json({ limit: '50mb' }));
+    app.use(express.urlencoded({ limit: '50mb', extended: true }));
     app.use(morgan('dev'));
     app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
     app.get('/files', authToken, (req, res) => {

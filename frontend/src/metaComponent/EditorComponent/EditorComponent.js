@@ -48,7 +48,6 @@ function EditorComponent({ files, selectedFile }) {
             } else {
                 console.error("Invalid file content format");
             }
-            console.log("fecthed",content.fileId,response._id)
         } catch (error) {
             console.error("Error fetching file content:", error);
         }
@@ -60,7 +59,7 @@ function EditorComponent({ files, selectedFile }) {
             console.warn("Auto-save skipped: editor instance is missing.");
             return;
         }
-        if (!files || !files[selectedFile]) {
+        if (!files || !files[selectedFilefromEditor]) {
             console.warn("Auto-save skipped: file information is missing.");
             return;
         }

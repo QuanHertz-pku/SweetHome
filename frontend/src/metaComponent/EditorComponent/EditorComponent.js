@@ -11,7 +11,7 @@ function EditorComponent({ files, selectedFile }) {
     useEffect(() => {
         // 初始化 Editor.js 实例，只有当 files 和 selectedFile 有效时才初始化
         if (files && files[selectedFile] && !editorInstance.current) {
-            editorInstance.current = EditorOrigin({handleAutoSave:handleAutoSave});
+            editorInstance.current = EditorOrigin({handleAutoSave:handleAutoSave,selectedFile:selectedFile});
         }
         // 清理函数：在组件卸载时销毁 Editor.js 实例
         return () => {
@@ -54,7 +54,7 @@ function EditorComponent({ files, selectedFile }) {
         }
     };
 
-    const handleAutoSave = async () => {
+    const handleAutoSave = async (selectedFilefromEditor) => {
         // 确保 editorInstance.current 和 selectedFile 有效
         if (!editorInstance.current) {
             console.warn("Auto-save skipped: editor instance is missing.");
@@ -68,7 +68,7 @@ function EditorComponent({ files, selectedFile }) {
         try {
             const outputData = await editorInstance.current.save();
             console.log('Auto-saving data: ', outputData);
-            const fileId = files[selectedFile].id;
+            const fileId = files[selectedFilefromEditor].id;
             if (fileId) {
                 SaveFileServer(fileId, outputData);
             } else {

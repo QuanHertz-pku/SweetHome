@@ -6,7 +6,7 @@ import InlineCode from '@editorjs/inline-code';
 import CodeMirrorTool from './CodeMirrorTool';
 import ImageTool from '@editorjs/image';
 
-const EditorOrigin = ({handleAutoSave})=>{
+const EditorOrigin = ({handleAutoSave,selectedFile})=>{
     return new EditorJS({
         holder: 'editorjs',
             tools: {
@@ -32,7 +32,9 @@ const EditorOrigin = ({handleAutoSave})=>{
                     }
                 }
             },
-            onChange: handleAutoSave,
+            onChange: ()=>{
+                handleAutoSave(selectedFile);
+            },
             autofocus: true,
             i18n: {
             messages: {

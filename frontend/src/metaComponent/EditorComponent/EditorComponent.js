@@ -6,6 +6,7 @@ import SaveFileServer from '@/servers/FileServer/SaveFileServer';
 
 function EditorComponent({ files, selectedFile }) {
     const editorInstance = useRef(null);
+    const editordivRef=useRef(null);
     const [content, setContent] = useState(null);
 
     useEffect(() => {
@@ -18,6 +19,7 @@ function EditorComponent({ files, selectedFile }) {
             if (editorInstance.current) {
                 editorInstance.current.destroy();
                 editorInstance.current = null;
+                editordivRef.current.className="invisible";
             }
         };
     }, [files, selectedFile]);
@@ -34,7 +36,9 @@ function EditorComponent({ files, selectedFile }) {
         if (editorInstance.current && content) {
             editorInstance.current.isReady
                 .then(() => {
-                    editorInstance.current.render(content.filecontent);
+                    editorInstance.current.render(content.filecontent).then(()=>{
+                        editordivRef.current.className="visible";
+                    });
                 })
                 .catch(error => console.error("Error rendering content:", error));
         }
@@ -77,8 +81,8 @@ function EditorComponent({ files, selectedFile }) {
         }
     };
 
-    return files && files[selectedFile] ? (
-        <div id="editorjs"></div>
+    return files && files[selectedFile]? (
+        <div id="editorjs" className='invisible' ref={editordivRef}></div>
     ) : (
         <div>Loading...</div> // 如果 files 数据未加载时，显示加载状态
     );

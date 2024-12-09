@@ -10,7 +10,7 @@ import Table from '@editorjs/table';
 import Marker from '@editorjs/marker';
 import Underline from '@editorjs/underline';
 const EditorOrigin = ({ handleAutoSave, selectedFile }) => {
-    return new EditorJS({
+    const editor = new EditorJS({
         holder: 'editorjs',
         tools: {
             header: Header,
@@ -47,8 +47,11 @@ const EditorOrigin = ({ handleAutoSave, selectedFile }) => {
                 }
             }
         },
-        onChange: () => {
-            handleAutoSave(selectedFile);
+        onChange: async () => {
+            if(editor.save){
+                const data = await editor.save();
+                handleAutoSave(selectedFile,data);
+            }
         },
         autofocus: true,
         i18n: {
@@ -128,6 +131,7 @@ const EditorOrigin = ({ handleAutoSave, selectedFile }) => {
             }
         },
     });
+    return editor;
 }
 
 export default EditorOrigin;

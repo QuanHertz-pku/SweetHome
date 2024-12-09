@@ -53,7 +53,7 @@ function EditorComponent({ files, selectedFile }) {
         }
     };
 
-    const handleAutoSave = async (selectedFilefromEditor) => {
+    const handleAutoSave = async (selectedFilefromEditor,outputData) => {
         // 确保 editorInstance.current 和 selectedFile 有效
         if (!editorInstance.current) {
             console.warn("Auto-save skipped: editor instance is missing.");
@@ -65,7 +65,6 @@ function EditorComponent({ files, selectedFile }) {
         }
 
         try {
-            const outputData = await editorInstance.current.save();
             console.log('Auto-saving data: ', outputData);
             const fileId = files[selectedFilefromEditor].id;
             if (fileId) {

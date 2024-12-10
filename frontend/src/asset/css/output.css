@@ -584,6 +584,10 @@ h6 {
   line-height: 1.75rem;
 }
 
+.visible {
+  visibility: visible;
+}
+
 .invisible {
   visibility: hidden;
 }
@@ -724,6 +728,10 @@ h6 {
 
 .flex {
   display: flex;
+}
+
+.table {
+  display: table;
 }
 
 .size-6 {
@@ -906,6 +914,10 @@ h6 {
 
 .rounded-xl {
   border-radius: 0.75rem;
+}
+
+.border {
+  border-width: 1px;
 }
 
 .border-2 {
@@ -1114,6 +1126,10 @@ h6 {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.underline {
+  text-decoration-line: underline;
 }
 
 .opacity-40 {

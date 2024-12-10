@@ -19,7 +19,9 @@ function EditorComponent({ files, selectedFile }) {
             if (editorInstance.current) {
                 editorInstance.current.destroy();
                 editorInstance.current = null;
-                editordivRef.current.className="invisible";
+                if(editordivRef.current){
+                    editordivRef.current.className="invisible";
+                }
             }
         };
     }, [files, selectedFile]);
@@ -37,7 +39,9 @@ function EditorComponent({ files, selectedFile }) {
             editorInstance.current.isReady
                 .then(() => {
                     editorInstance.current.render(content.filecontent).then(()=>{
-                        editordivRef.current.className="visible";
+                        if(editordivRef.current){
+                            editordivRef.current.className="visible";
+                        }
                     });
                 })
                 .catch(error => console.error("Error rendering content:", error));
@@ -48,7 +52,7 @@ function EditorComponent({ files, selectedFile }) {
         try {
             const response = await ReadFileServer(fileId);
             if (response && response.filecontent && Array.isArray(response.filecontent.blocks)) {
-                setContent({filecontent: response.filecontent,fileId:response._id });
+                setContent({filecontent: response.filecontent});
             } else {
                 console.error("Invalid file content format");
             }

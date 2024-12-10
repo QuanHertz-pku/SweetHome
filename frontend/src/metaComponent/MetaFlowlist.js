@@ -2,7 +2,7 @@ const MetaFlowlist = (props) => {
     return (
         <div className="h-1/3 w-full">
             <div className="flex w-full justify-between">
-                <div className="ml-1 font-mono font-thin text-slate-600">WorkFlow</div>
+                <div className="mt-1 ml-1 font-mono font-thin text-slate-600">WorkFlow</div>
                 <div className="ml-1 text-slate-500">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 26 26" strokeWidth="1.4" stroke="currentColor" className="size-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
@@ -36,7 +36,7 @@ const MetaFlowlist = (props) => {
                 </li>
                 <li className="flex items-center hover:bg-white"
                     onClick={()=>{
-                        props.  setSelectedList(1);
+                        props.setSelectedList(1);
                     }}
                 >
                     <div>

@@ -35,7 +35,7 @@ function HomePage(){
         <MetaBackground>
             <MetaSidebar {...EditorProps} setSelectedFile={setSelectedFile} setSelectedList={setSelectedList}/>
             <MetaMaincontianer>
-                {selectedList ===0 ? <MetaEditor {...EditorProps} selectedFile={selectedFile}/> : <MetaPrograming/>}
+                {selectedList === 0 ? <MetaEditor {...EditorProps} selectedFile={selectedFile}/> : <MetaPrograming/>}
             </MetaMaincontianer>
         </MetaBackground>
     );

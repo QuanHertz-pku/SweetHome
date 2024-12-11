@@ -20,7 +20,7 @@ function EditorComponent({ files, selectedFile }) {
                 editorInstance.current.destroy();
                 editorInstance.current = null;
                 if(editordivRef.current){
-                    editordivRef.current.className="invisible";
+                    editordivRef.current.className="transition opacity-0 duration-400 invisible";
                 }
             }
         };
@@ -40,7 +40,7 @@ function EditorComponent({ files, selectedFile }) {
                 .then(() => {
                     editorInstance.current.render(content.filecontent).then(()=>{
                         if(editordivRef.current){
-                            editordivRef.current.className="visible";
+                            editordivRef.current.className="visible transition opacity-100 duration-400";
                         }
                     });
                 })
@@ -86,7 +86,7 @@ function EditorComponent({ files, selectedFile }) {
     };
 
     return files && files[selectedFile]? (
-        <div id="editorjs" className='invisible' ref={editordivRef}></div>
+        <div id="editorjs" className='invisible opacity-0' ref={editordivRef}></div>
     ) : (
         <div>Loading...</div> // 如果 files 数据未加载时，显示加载状态
     );

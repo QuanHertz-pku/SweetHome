@@ -22,7 +22,7 @@ const MetaFileitem = (props) => {
                     </div>
                     <div className="ml-1 font-blod">{props.filename}</div>
                     <input type="text" ref={renameRef}
-                        className="absolute left-4 px-1 bg-sky-100 w-full font-blod invisible"
+                        className="absolute left-4 px-1 bg-sky-100 w-[calc(100%-3rem)] font-blod invisible"
                         defaultValue={props.filename}
                         onKeyDown={
                             async (event)=>{
@@ -36,7 +36,7 @@ const MetaFileitem = (props) => {
                                 }
                             }
                         }
-                        />
+                    />
                 </div>
                 
                 <div className="relative rounded-sm hover:bg-slate-200 mr-2"

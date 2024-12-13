@@ -3,7 +3,7 @@ import MetaScrollable from "./MetaScrollable"
 
 const MetaFilelist = (props) => {
     return (
-        <div className="h-1/2 w-full pb-4">
+        <div className="h-1/2 w-full pb-5">
             <div className="flex w-full justify-between">
                 <div className="ml-1 font-mono font-thin text-slate-600">Note</div>
                 <div className="ml-1 text-slate-500">

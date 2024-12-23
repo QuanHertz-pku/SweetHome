@@ -11,8 +11,8 @@ const MetaSidebar = (props) => {
 
                 <div className="w-full flex-grow flex-col">
                     <MetaFilelist {...props}></MetaFilelist>
-                    <MetaFlowlist setSelectedList={props.setSelectedList}></MetaFlowlist>
-                    <MetaLablist setSelectedList={props.setSelectedList}></MetaLablist>
+                    {/*<MetaFlowlist setSelectedList={props.setSelectedList}></MetaFlowlist>
+                    <MetaLablist setSelectedList={props.setSelectedList}></MetaLablist>*/}
                 </div>
             </div>
         </div>

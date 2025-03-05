@@ -1,0 +1,3 @@
+# controllers 说明
+
+一定要精简精简再精简，controllers只负责封装各个路由需要的函数，而这些函数是通过调用functions组成，controller只负责response，其他一概不管

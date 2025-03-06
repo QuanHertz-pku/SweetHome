@@ -14,3 +14,6 @@
 
 
 2,userFunctions.js
+
+
+3,authFunctions.js

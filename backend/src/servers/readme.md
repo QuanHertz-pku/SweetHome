@@ -23,5 +23,6 @@
         查询用户(查询一个用户是否存在):isHaveUserById(),isHaveUserByName()
         获取用户列表:getUserList()
         获取用户信息:getUserInfo()
+        获取用户数据:getUserToken()
 
     2.2 用户登录检验:loginCheck()

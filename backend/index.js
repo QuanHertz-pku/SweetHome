@@ -16,7 +16,7 @@
     const mongoose = require('mongoose');
     const bcrypt = require('bcrypt');
     const cors = require('cors');
-    const authToken = require('./src/middleware/authToken');
+    const authMiddleware = require('./src/middleware/authMiddleware');
     const path = require('path');
     
 
@@ -44,10 +44,9 @@
     app.use(express.urlencoded({ limit: '50mb', extended: true }));
     app.use(morgan('dev'));
     app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-    app.get('/files', authToken, (req, res) => {
-        res.json({ message: '你已成功访问保护路由', user: req.user });
+    app.use('/api/files/list', authMiddleware.authToken, (req, res,next) => {
+        next();
     });
-    
 
     // 使用 morgan 中间件，记录请求日志
 

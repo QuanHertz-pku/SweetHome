@@ -44,7 +44,10 @@
     app.use(express.urlencoded({ limit: '50mb', extended: true }));
     app.use(morgan('dev'));
     app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-    app.use('/api/files/list', authMiddleware.authToken, (req, res,next) => {
+    app.use('/api/files/*', authMiddleware.authToken, (req, res,next) => {
+        next();
+    });
+    app.use('/api/folders/*', authMiddleware.authToken, (req, res,next) => {
         next();
     });
 
@@ -56,10 +59,12 @@
     // 路由模块
     const filesRoutes = require('./src/routes/files');
     const authRoutes = require('./src/routes/auth');
+    const folderRoutes = require('./src/routes/folder');
 
     // 使用路由模块
     app.use('/api/files', filesRoutes);
     app.use('/api/auth', authRoutes);
+    app.use('/api/folders', folderRoutes); // 使用路由模块
 
     app.use((req,res)=>{
         res.type('text/plain')

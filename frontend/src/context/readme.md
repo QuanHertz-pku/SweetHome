@@ -1,0 +1,5 @@
+# context
+
+每一个文件create 一个context，然后context存一个reducer，reducer包含一个state，dispatch，用来处理状态变化，关于状态变化的渲染就交给multiComponent的useEffect来处理
+
+还需要封装一些click或者submit的逻辑，封装在dispatch里就好

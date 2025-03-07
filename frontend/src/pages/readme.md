@@ -1,0 +1,3 @@
+# Page 说明
+
+每个Router路由对应一个Page，在这个Page之下路由不变。Page只负责整合multiComponent，并且负责下传所有需要管理的钩子(只需要把自己包在ContextProvider中即可)

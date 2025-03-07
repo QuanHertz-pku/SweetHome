@@ -1,0 +1,3 @@
+#metaComponent
+
+每一个metaComponent只是一个和 外观 相关的组件，不应该包含任何响应信息！响应逻辑请搞在multiComponent中，但是metaComponent需要暴露一些影响外观的接口，比如内容等等

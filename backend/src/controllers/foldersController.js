@@ -7,9 +7,9 @@ const addFolder = async (req, res) => {
     res.json(message);
 }
 
-const deleteFolder = (req, res) => {
+const deleteFolder = async (req, res) => {
     const { id } = req.body;
-    const message = folderServer.deleteFolder(id);
+    const message = await folderServer.deleteFolder(id);
     res.json(message);
 }
 
@@ -19,8 +19,29 @@ const getRootList = async (req, res) => {
     res.json(list);
 }
 
+const getFolderList = async (req, res) => {
+    const { parent } = req.body;
+    const list = await folderFunction.getFolderList(parent);
+    res.json(list);
+}
+
+const moveFolder = async (req, res) => {
+    const { id,parent } = req.body;
+    const message = await folderFunction.moveFolder(id,parent);
+    res.json(message);
+}
+
+const renameFolder = async (req, res) => {
+    const { id,name } = req.body;
+    const message = await folderFunction.renameFolder(id,name);
+    res.json(message);
+}
+
 module.exports = {
     addFolder,
     deleteFolder,
-    getRootList
+    getRootList,
+    getFolderList,
+    moveFolder,
+    renameFolder
 }

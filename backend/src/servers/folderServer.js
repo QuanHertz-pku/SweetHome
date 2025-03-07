@@ -19,7 +19,7 @@ const findFolderById = async (id) => {
 
 const findFolderByParent = async (parent) => {
     try {
-        const folders = await Folder.find({ parent: parent });
+        const folders = await Folder.find({ parent });
         return folders;
     } catch (error) {
         return {message: 'Failed to fetch folders', error}
@@ -28,12 +28,14 @@ const findFolderByParent = async (parent) => {
 const addFolder = async (parent, name) => {
     try {
         parent = await parent ? parent : getRootFolder()._id;
+        parentReal=await findFolderById(parent);
+        console.log(parentReal.path);
         const folder = new Folder({
             name,
             parent,
             type: 'folder',
+            path: `${parentReal.path}/${name}`
         });
-        folder.path = `${parent?.path}/${name}`;
         await folder.save();
         return {message: 'Folder created successfully', folder}
     } catch (error) {
@@ -43,7 +45,8 @@ const addFolder = async (parent, name) => {
 
 const deleteFolder = async (id) => {
     try {
-        findFolderByParent(id).forEach(async (folder) => {
+        const chrildren = await findFolderByParent(id); 
+        chrildren.forEach(async (folder) => {
             await deleteFolder(folder._id);
         });
         await Folder.findByIdAndDelete(id);
@@ -71,6 +74,15 @@ const updateFolderName = async (id, name) => {
     }
 }
 
+const updateFolderPath = async (id, path) => {
+    try {
+        await Folder.findByIdAndUpdate(id, { path });
+        return {message: 'Folder updated successfully'}
+    } catch (error) {
+        return {message: 'Failed to update folder', error}
+    }
+}
+
 module.exports = {
     addFolder,
     deleteFolder,
@@ -79,4 +91,5 @@ module.exports = {
     getRootFolder,
     findFolderById,
     findFolderByParent,
+    updateFolderPath
 }

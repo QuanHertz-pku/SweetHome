@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const fileSchema = new mongoose.Schema({
     filename: { type: String, required: true},
-    filecontent: { type: Object, required: true}
+    filecontent: { type: Object, required: true},
 });
 
 fileSchema.methods.toJSON = function () {

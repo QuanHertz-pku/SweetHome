@@ -14,7 +14,40 @@ const addFolder = async (parent,name) => {
     return folder;
 };
 
+const deleteFolder = async (folderId) => {
+    const folder = await folderServer.deleteFolder(folderId);
+    return folder;
+};
+
+const getFolderList = async (parentId) => {
+    if(!parentId){
+        parentId = await folderServer.getRootFolder().id;
+    }
+    const folderList = await folderServer.findFolderByParent(parentId);
+    return folderList;
+};
+
+const moveFolder = async (folderId,parentId) => {
+    const message = await folderServer.updateFolderParent(folderId,parentId);
+    const parent = await folderServer.findFolderById(parentId);
+    const folder = await folderServer.findFolderById(folderId);
+    await folderServer.updateFolderPath(folderId,`${parent.path}/${folder.name}`);
+    return message;
+};
+
+const renameFolder = async (folderId,name) => {
+    const message = await folderServer.updateFolderName(folderId,name);
+    const folder = await folderServer.findFolderById(folderId);
+    const parent = await folderServer.findFolderById(folder.parent);
+    await folderServer.updateFolderPath(folderId,`${parent.path}/${name}`);
+    return message;
+};
+
 module.exports = {
     getRootList,
-    addFolder
+    addFolder,
+    deleteFolder,
+    getFolderList,
+    moveFolder,
+    renameFolder
 };

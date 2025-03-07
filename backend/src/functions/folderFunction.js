@@ -1,5 +1,5 @@
 const folderServer = require('../servers/folderServer');
-
+const filesServer = require('../servers/filesServer');
 const getRootList = async () => {
     const rootFolder = await folderServer.getRootFolder();
     const rootList = await folderServer.findFolderByParent(rootFolder.id);
@@ -15,8 +15,18 @@ const addFolder = async (parent,name) => {
 };
 
 const deleteFolder = async (folderId) => {
-    const folder = await folderServer.deleteFolder(folderId);
-    return folder;
+    const folder = await folderServer.findFolderById(folderId);
+    if(folder.type=== 'file'){
+        await filesServer.deleteFile(folder.file);
+        await folderServer.deleteFolder(folderId);
+    }else{
+        const children = await folderServer.findFolderByParent(folderId);
+        children.forEach(async (child) => {
+            await deleteFolder(child.id);
+        });
+    }
+    const message = await folderServer.deleteFolder(folderId);
+    return message;
 };
 
 const getFolderList = async (parentId) => {
@@ -40,6 +50,9 @@ const renameFolder = async (folderId,name) => {
     const folder = await folderServer.findFolderById(folderId);
     const parent = await folderServer.findFolderById(folder.parent);
     await folderServer.updateFolderPath(folderId,`${parent.path}/${name}`);
+    if(folder.type === 'file'){
+        await filesServer.reanameFile(folder.file,name);
+    }
     return message;
 };
 

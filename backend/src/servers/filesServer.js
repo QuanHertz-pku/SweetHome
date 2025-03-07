@@ -1,5 +1,5 @@
-const { renameFile } = require('../controllers/filesController');
 const File = require('../models/File');
+const folderServer = require('./folderServer');
 
 const addFile = async() => {
     try{
@@ -65,10 +65,23 @@ const uploadFile = async(filename) => {
     }
 }
 
+const updateFile = async(id, filecontent) => {
+    try{
+        const file = await File.findByIdAndUpdate(
+            id,
+            { filecontent: filecontent },
+        );
+        return file;
+    }catch(err){
+        console.log(err);
+    }
+}
+
 module.exports = {
     addFile,
     getFileContent,
     deleteFile,
     reanameFile,
-    uploadFile
+    uploadFile,
+    updateFile
 }

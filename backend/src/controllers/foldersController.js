@@ -9,7 +9,7 @@ const addFolder = async (req, res) => {
 
 const deleteFolder = async (req, res) => {
     const { id } = req.body;
-    const message = await folderServer.deleteFolder(id);
+    const message = await folderFunction.deleteFolder(id);
     res.json(message);
 }
 

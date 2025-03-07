@@ -1,4 +1,5 @@
 const Folder = require('../models/Folder');
+const filesServer = require('./filesServer');
 
 const getRootFolder = async () => {
     try {
@@ -29,11 +30,10 @@ const addFolder = async (parent, name) => {
     try {
         parent = await parent ? parent : getRootFolder()._id;
         parentReal=await findFolderById(parent);
-        console.log(parentReal.path);
         const folder = new Folder({
             name,
             parent,
-            type: 'folder',
+            type:'folder',
             path: `${parentReal.path}/${name}`
         });
         await folder.save();
@@ -43,12 +43,28 @@ const addFolder = async (parent, name) => {
     }
 }
 
+const addFile = async (parent, name,file) => {
+    try {
+        parent = await parent ? parent : getRootFolder()._id;
+        parentReal=await findFolderById(parent);
+        const folder = new Folder({
+            name,
+            parent,
+            type:'file',
+            path: `${parentReal.path}/${name}`,
+            file
+        });
+        await folder.save();
+        return {message: 'Folder created successfully', folder}
+    } catch (error) {
+        return {message: 'Failed to create folder', error}
+    }
+}
+
+
+
 const deleteFolder = async (id) => {
     try {
-        const chrildren = await findFolderByParent(id); 
-        chrildren.forEach(async (folder) => {
-            await deleteFolder(folder._id);
-        });
         await Folder.findByIdAndDelete(id);
         return {message: 'Folder deleted successfully'}
     } catch (error) {
@@ -91,5 +107,6 @@ module.exports = {
     getRootFolder,
     findFolderById,
     findFolderByParent,
-    updateFolderPath
+    updateFolderPath,
+    addFile
 }

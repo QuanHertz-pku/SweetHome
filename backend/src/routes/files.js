@@ -19,11 +19,9 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 // 示例文件路由
-router.get('/content/:id', filesController.getFileContent);
+router.post('/content/', filesController.getFileContent);
 router.post('/add', filesController.addFile);
-router.put('/update/:id', filesController.updateFile);
-router.get('/delete/:id', filesController.deleteFile);
-router.post('/rename/:id', filesController.renameFile);
+router.post('/update/', filesController.updateFile);
 router.post('/uploadFile', upload.single('image') , filesController.uploadFile);
 
 

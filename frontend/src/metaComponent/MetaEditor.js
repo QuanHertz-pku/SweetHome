@@ -1,4 +1,4 @@
-import EditorComponent from "./EditorComponent/EditorComponent"
+import EditorComponent from "../plugin/EditorComponent/EditorComponent"
 import {MetaScrollable} from "."
 
 const MetaEditor = (props) =>

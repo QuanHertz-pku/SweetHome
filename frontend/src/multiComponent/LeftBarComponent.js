@@ -1,6 +1,6 @@
 import { MetaLine, MetaBasicContainer, MetaBlankContainer, MetaSVGIcon } from "../metaComponent"
 
-const RightSideComponent = (props) => {
+const LeftBarComponent = (props) => {
 
     return (
         <div className={`${props.positionClassName} ${props.sizeClassName}`}>
@@ -11,4 +11,4 @@ const RightSideComponent = (props) => {
     )
 }
 
-export default RightSideComponent;
+export default LeftBarComponent;

@@ -1,9 +1,9 @@
-const MetaBasicButton = (props) => {
+const MetaSecondButton = (props) => {
 
     return (
         <div className={`${props.positionClassName} ${props.sizeClassName}`}>
             <div 
-                className={`h-full w-full rounded-xl bg-pink-400 hover:bg-pink-500 ${props.layoutClassName}`}
+                className={`h-full w-full rounded-xl bg-indigo-500 hover:bg-indigo-600 ${props.layoutClassName}`}
                 onClick={props.click}
             >
                 {props.children}
@@ -12,4 +12,4 @@ const MetaBasicButton = (props) => {
     );
 }
 
-export default MetaBasicButton;
+export default MetaSecondButton;

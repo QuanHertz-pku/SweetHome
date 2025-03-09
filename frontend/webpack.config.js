@@ -1,6 +1,17 @@
 const webpack = require('webpack');
 const path = require('path');
+const dotenv = require('dotenv');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+if (process.env.NODE_ENV === 'production') {
+    dotenv.config({ path: '.env.production' });
+    console.log('生产环境');
+} else if (process.env.NODE_ENV === 'development') {
+    dotenv.config({ path: '.env.development' });
+    console.log('开发环境');
+} else {
+    dotenv.config(); // 默认加载 .env 文件
+}
 
 //below will be export as a configuration object for node
 module.exports = {
@@ -55,6 +66,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       'process.env.API_URL': JSON.stringify(process.env.API_URL),
+      'process.env.FILE_URL': JSON.stringify(process.env.FILE_URL),
     }),
   ],
   devServer: {

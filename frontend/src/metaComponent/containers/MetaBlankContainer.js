@@ -1,12 +1,10 @@
-const MetaLine = (props) => {
+const MetaBlankContainer = (props) => {
     return (
         <div className={`${props.positionClassName} ${props.sizeClassName}`}>
             <div className={`w-full h-full ${props.layoutClassName}`}>
-                <p className={`truncate ${props.fontClassName}`}>
-                    {props.children}
-                </p>
+                {props.children}
             </div>
         </div>
     );
 }
-export default MetaLine;
+export default MetaBlankContainer;

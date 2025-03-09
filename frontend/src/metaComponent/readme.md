@@ -5,7 +5,7 @@
 首先，明确分类
 一部分，是类似按钮（确定配色方案之后，只需要传递颜色的参数就可以啦），头像，图片，什么的图像类型的
 配色方案：
-background：pink-500 indigo-600 (渐变色)
+background：pink-500 indigo-600 (渐变色) middle: purple-500
 container：slate-100 broder-slate-200
 text：black
 reminder/wraning：pink-500

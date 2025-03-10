@@ -4,7 +4,12 @@ module.exports = {
     "./src/**/*.{html,js}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        easyLine: ['easyLine', 'sans-serif'], // 保持与 @font-face 的名称一致
+        melon:['melon','sans-serif']
+      }
+    },
   },
   plugins: [
     function ({ addUtilities }) {

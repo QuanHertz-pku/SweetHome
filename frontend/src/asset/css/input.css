@@ -1,5 +1,20 @@
 @tailwind base;
 
+@font-face {
+  font-family: 'easyLine';
+  src: url('../font/easyLine.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* 优化字体加载体验 */
+}
+@font-face {
+  font-family: 'melon';
+  src: url('../font/melon.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* 优化字体加载体验 */
+}
+
 @layer base {
     h1 {
       @apply text-5xl;
@@ -24,3 +39,4 @@
 @tailwind components;
 
 @tailwind utilities;
+

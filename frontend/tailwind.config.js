@@ -7,7 +7,8 @@ module.exports = {
     extend: {
       fontFamily: {
         easyLine: ['easyLine', 'sans-serif'], // 保持与 @font-face 的名称一致
-        melon:['melon','sans-serif']
+        melon:['melon','sans-serif'],
+        xingshu:['xingshu','sans-serif']
       }
     },
   },

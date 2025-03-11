@@ -2,6 +2,7 @@ export {default as MetaBackgroundContainers} from './containers/MetaBackgroundCo
 export {default as MetaBasicContainer} from './containers/MetaBasicContainer';
 export {default as MetaScrollableContainer} from './containers/MetaScrollableContainer';
 export {default as MetaBlankContainer} from './containers/MetaBlankContainer';
+export {default as MetaColorContainer} from './containers/MetaColorContainer';
 
 
 export {default as MetaBasicButton} from './buttons/MetaBasicButton';

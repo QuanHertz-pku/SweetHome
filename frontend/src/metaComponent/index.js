@@ -10,6 +10,7 @@ export {default as MetaScecondButton} from './buttons/MetaSecondButton';
 export {default as MetaMiddleButton} from './buttons/MetaMiddleButton';
 
 export {default as MetaSVGIcon} from './Icons/MetaSVGIcon';
+export {default as MetaDot} from './Icons/MetaDot';
 
 export {default as MetaLine} from './paragraphs/MetaLine';
 export {default as MetaShadowLine} from './paragraphs/MetaShadowLine';

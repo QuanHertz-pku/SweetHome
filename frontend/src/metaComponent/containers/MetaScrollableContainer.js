@@ -8,7 +8,7 @@ function MetaScrollableContainer({ children }) {
                 autoHide: 'scroll'  // 滚动时显示滚动条
             }
         }}
-        style={{ height: '100%', overflowY: 'auto' }}  // 确保 OverlayScrollbars 组件充满空间
+        style={{ height: '100%', width:'100%', overflowY: 'auto' }}  // 确保 OverlayScrollbars 组件充满空间
     >
         {children}
     </OverlayScrollbarsComponent>

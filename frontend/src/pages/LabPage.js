@@ -4,7 +4,7 @@ import LeftBarComponent from "../multiComponent/LeftBarComponent";
 import LeftSideComponent from "../multiComponent/LeftSideComponent";
 import NavComponent from "../multiComponent/NavComponent";
 import RightSideComponent from "../multiComponent/RightSideComponent";
-import WelcomeComponent from "../multiComponent/WelcomComponent";
+import UserInfoComponent from "../multiComponent/UserInfoComponent";
 
 function LabPage() {
   return (
@@ -16,7 +16,7 @@ function LabPage() {
         </MetaBlankContainer>
         <MetaBlankContainer sizeClassName="w-2/3 h-full py-1" layoutClassName="flex flex-col">
           <NavComponent sizeClassName="h-16 w-full py-1"></NavComponent>
-          <WelcomeComponent sizeClassName="h-full w-full py-1"></WelcomeComponent>
+          <UserInfoComponent sizeClassName="h-full w-full py-1"></UserInfoComponent>
         </MetaBlankContainer>
         <MetaBlankContainer sizeClassName="w-1/6 h-full p-1" layoutClassName="flex flex-col">
           <RightSideComponent sizeClassName="h-full w-full p-1"></RightSideComponent>
